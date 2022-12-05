@@ -2,13 +2,17 @@
 //the tree that you implemented. [10, 7, 14, 20, 1, 5, 8]
 public class Ferrell_Problem3 {
     public static void main(String[] args) {
+        //Declares a Binary Search Tree and adds each node.
         BinarySearchTree tree = new BinarySearchTree();
         tree.add(10); tree.add(7); tree.add(14);
         tree.add(20); tree.add(1);
         tree.add(5); tree.add(8);
+        //calls the print leaves method
         tree.printLeaves();
     }
 }
+
+//Defines a Binary Search Tree
 class BinarySearchTree {
     Node root;
     public BinarySearchTree() {
@@ -21,6 +25,7 @@ class BinarySearchTree {
         if (node == null) {
             node = new Node(val);
         } else {
+            //Implements the sorting
             if (val < node.val) {
                 node.left = add(node.left, val);
             } else if (val > node.val) {
@@ -29,6 +34,7 @@ class BinarySearchTree {
         }
         return node;
     }
+    //Method to print all leaves
     public void printLeaves() {
         printLeaves(root);
     }
@@ -36,6 +42,7 @@ class BinarySearchTree {
         if (node == null) {
             return;
         }
+        //Determines if it is a leaf node, then prints.
         if (node.left == null && node.right == null) {
             System.out.println(node.val);
         } else {
@@ -44,6 +51,7 @@ class BinarySearchTree {
         }
     }
 }
+//Defines a Node
 class Node {
     int val;
     Node left;
